@@ -7,7 +7,15 @@ class Film extends React.Component {
     }
 
     render() {
-        return (<h1>{this.props.name}</h1>);
+        const film = this.props.filmObject;
+        return (
+            <div>
+                <img src={film.imgLink}/>
+                <h1>{film.name}</h1>
+                <p>Année : {film.year}</p>
+                <p>Durée : {film.duration}</p>
+                <p>Synopsis : {film.synopsis}</p>
+            </div>);
     }
 
 }
