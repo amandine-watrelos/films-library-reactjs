@@ -1,7 +1,7 @@
 import React from "react";
-import './Film.css'
+import './FilmCard.css'
 
-const Film = ({film}) => {
+const FilmCard = ({film}) => {
 
     return (
         <div className="card col-md-3 d-inline-block">
@@ -15,4 +15,4 @@ const Film = ({film}) => {
 
 }
 
-export default Film;
+export default FilmCard;

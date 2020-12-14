@@ -1,5 +1,5 @@
 import './App.css';
-import Film from '../film/Film';
+import FilmCard from '../film/FilmCard';
 import NavBar from "../navbar/NavBar";
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
       }
   ]
 
-  const filmsRendered = films.map(film => <Film film={film} key={film.id}/>);
+  const filmsRendered = films.map(film => <FilmCard film={film} key={film.id}/>);
 
   return (
     <div>
