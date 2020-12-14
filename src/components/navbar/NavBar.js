@@ -1,6 +1,9 @@
+import './NavBar.css';
+
 function NavBar() {
+    const appName = "Films library";
     return (
-        <div>Films library</div>
+        <nav className='text-center'>{appName}</nav>
     );
 }
 

@@ -29,12 +29,12 @@ function App() {
       }
   ]
 
-  const filmsRendered = films.map(film => <Film filmObject={film}/>);
+  const filmsRendered = films.map(film => <Film filmObject={film} key={film.id}/>);
 
   return (
-    <div className="App">
+    <div>
       <NavBar/>
-      <div className="filmsList">
+      <div className="filmsList" style={{textAlign : 'center'}}>
         {filmsRendered}
       </div>
     </div>

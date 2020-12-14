@@ -1,0 +1,53 @@
+.card img {
+    display: block;
+    margin: 0 auto;
+}
+
+.card-body {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+@media (max-width: 576px) {
+
+    .card {
+        padding: 10px;
+        margin: 10px;
+        width: auto;
+    }
+
+    .card img {
+        width: 40vw;
+        height: auto;
+    }
+
+    .card-body {
+        height: 30vh;
+        -webkit-line-clamp: 8;
+    }
+
+   
+}
+
+@media (min-width: 577px) {
+
+    .card {
+        width : 20vw;
+        height : 60vh;
+        margin: 2vh 1vw;
+        padding: 15px;
+    }
+
+    .card img {
+        height : auto;
+        width : 12vw;
+    }
+
+    .card-body {
+        height: 23vh;
+        -webkit-line-clamp: 7;
+    }
+
+}
