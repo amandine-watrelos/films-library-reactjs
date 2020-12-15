@@ -1,11 +1,21 @@
-import './NavBar.css';
+import PropTypes from "prop-types";
 
-const NavBar = () => {
+const NavBar = ({appName}) => {
 
-    const appName = "Films library";
+    NavBar.defaultProps = {
+        appName : PropTypes.string.isRequired,
+    }
+
+    const navBarStyle = {
+        backgroundColor: '#3cc3b2',
+        height: '5vh',
+        fontSize: '3vh',
+        textAlign: 'center',
+        display: 'block'
+    }
 
     return (
-        <nav className='text-center'>{appName}</nav>
+        <nav className='text-center' style={navBarStyle}>{appName}</nav>
     );
 }
 

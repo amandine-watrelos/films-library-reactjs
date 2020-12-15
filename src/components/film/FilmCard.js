@@ -1,7 +1,12 @@
-import React from "react";
-import './FilmCard.css'
+import './FilmCard.css';
+import PropTypes from 'prop-types';
+
 
 const FilmCard = ({film}) => {
+
+    FilmCard.defaultProps = {
+        film : PropTypes.object.isRequired,
+    }
 
     return (
         <div className="card col-md-3 d-inline-block">
