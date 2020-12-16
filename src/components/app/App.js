@@ -11,6 +11,7 @@ class App extends React.Component {
         this.state = {
             films : [],
             searchKeyword : '',
+            filmsRendered : '',
             appName : 'Films library'
         }
         this.updateSearchKeyword = this.updateSearchKeyword.bind(this);
@@ -41,26 +42,34 @@ class App extends React.Component {
                 synopsis : "Evocation des années de guerre d'Oskar Schindler, fils d'industriel d'origine autrichienne rentré à Cracovie en 1939 avec les troupes allemandes. Il va, tout au long de la guerre, protéger des juifs en les faisant travailler dans sa fabrique et en 1944 sauver huit cents hommes et trois cents femmes du camp d'extermination de Auschwitz-Birkenau."
             }
         ]
-        this.setState( {films :  films});
+        this.setState( {
+            films :  films,
+            filmsRendered : films.map(film => <FilmCard film={film} key={film.id}/>)
+        });
     }
 
     updateSearchKeyword(e) {
         this.setState({
             searchKeyword : e.target.value
         }, () => {
-            console.log(this.state.searchKeyword);
+            this.filterFilms(this.state.searchKeyword);
+        });
+    }
+
+    filterFilms(keyword) {
+        const filteredFilms = this.state.films.filter(film => film.name.toLowerCase().includes(keyword));
+        this.setState({
+            filmsRendered : filteredFilms.map(film => <FilmCard film={film} key={film.id}/>)
         });
     }
 
     render() {
-        const filmsRendered = this.state.films.map(film => <FilmCard film={film} key={film.id}/>);
-
         return (
             <div>
                 <NavBar appName={this.state.appName}/>
                 <SearchBar searchKeyword={this.state.searchKeyword} updateSearchKeyword={this.updateSearchKeyword}/>
                 <div className="filmsList" style={{textAlign : 'center'}}>
-                    {filmsRendered}
+                    {this.state.filmsRendered}
                 </div>
             </div>
         );
