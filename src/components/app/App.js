@@ -35,19 +35,31 @@ class App extends React.Component {
         }
     }
 
-    updateSearchKeyword(e) {
+    renderOriginalList() {
         this.setState({
-            searchKeyword : e.target.value
-        }, () => {
-            this.filterFilms(this.state.searchKeyword);
+            filmsRendered: this.state.films.map(film => <FilmCard film={film} key={film.id}/>)
         });
     }
 
-    filterFilms(keyword) {
-        const filteredFilms = this.state.films.filter(film => film.title.toLowerCase().includes(keyword));
+    updateSearchKeyword(e) {
+        const keyword = e.target.value;
         this.setState({
-            filmsRendered : filteredFilms.map(film => <FilmCard film={film} key={film.id}/>)
+            searchKeyword : keyword
+        }, () => {
+            keyword !== "" ? setTimeout(() => this.filterFilms(this.state.searchKeyword), 3000) : this.renderOriginalList();
         });
+    }
+
+    async filterFilms(keyword) {
+        try {
+            const filmsList = await FilmController.searchFilm(keyword);
+            const filteredFilms = filmsList.results.filter(film => film.title.toLowerCase().includes(keyword));
+            this.setState({
+                filmsRendered: filteredFilms.map(film => <FilmCard film={film} key={film.id}/>)
+            });
+        } catch (e) {
+            console.log('Error while filtering films list',e)
+        }
     }
 
     render() {
