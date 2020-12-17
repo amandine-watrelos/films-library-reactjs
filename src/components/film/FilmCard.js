@@ -14,7 +14,7 @@ const FilmCard = ({film}) => {
 
     return (
         <div className="card col-md-3 d-inline-block">
-            <img src={imgLink} alt="Film image" className="card-img-top"/>
+            <img src={imgLink} alt="Film poster" className="card-img-top"/>
             <div className="card-body">
                 <h5 className="card-title">{film.title} {releaseDate}</h5>
                 <p>Note moyenne : {film.vote_average}</p>
