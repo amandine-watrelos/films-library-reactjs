@@ -24,7 +24,7 @@
     }
 
     .card-body {
-        height: 30vh;
+        height: 28vh;
         -webkit-line-clamp: 8;
     }
 
@@ -46,8 +46,8 @@
     }
 
     .card-body {
-        height: 23vh;
-        -webkit-line-clamp: 7;
+        height: 21vh;
+        -webkit-line-clamp: 6;
     }
 
 }
