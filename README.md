@@ -12,6 +12,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 `npm run build` builds the app for production to the build folder.  
 
 Every push to the master branch redeploys the app in production.
-
-
-re
