@@ -2,7 +2,6 @@
   "name": "films-library-react",
   "version": "0.1.0",
   "description": "Films library app to train to Reactjs.",
-  "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
