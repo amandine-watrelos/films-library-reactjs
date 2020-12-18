@@ -1,6 +1,8 @@
 import './FilmCard.css';
 import PropTypes from 'prop-types';
-import noFilmImage from './../../assets/no_valid_image.jpg';
+import noFilmImage from '../../../assets/no_valid_image.jpg';
+import { Link } from 'react-router-dom';
+
 
 const FilmCard = ({film}) => {
 
@@ -16,11 +18,12 @@ const FilmCard = ({film}) => {
         <div className="card col-md-3 d-inline-block">
             <img src={imgLink} alt="Film poster" className="card-img-top"/>
             <div className="card-body">
-                <h5 className="card-title">{film.title} {releaseDate}</h5>
+                <Link to={'/details'} className="h5 card-title">{film.title} {releaseDate}</Link>
                 <p>Note moyenne : {film.vote_average}</p>
                 <p className="card-text">Synopsis : {overview}</p>
             </div>
-        </div>);
+        </div>
+    );
 
 }
 

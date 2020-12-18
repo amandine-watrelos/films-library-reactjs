@@ -1,76 +1,27 @@
-import './App.css';
-import FilmCard from '../film/FilmCard';
-import NavBar from "../navbar/NavBar";
-import SearchBar from "../searchbar/SearchBar";
+import NavBar from "../film/card/navbar/NavBar";
 import React from "react";
-import FilmController from '../../controllers/FilmController';
-
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import FilmDetails from "../film/details/FilmDetails";
+import Home from "../home/Home";
 
 class App extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            films : [],
-            searchKeyword : '',
-            filmsRendered : '',
             appName : 'Films library'
-        }
-        this.updateSearchKeyword = this.updateSearchKeyword.bind(this);
-    }
-
-    componentDidMount() {
-        this.setFilmsList();
-    }
-
-    async setFilmsList() {
-        try {
-            const filmsList = await FilmController.getFilmsList();
-            this.setState({
-                films: filmsList.results,
-                filmsRendered: filmsList.results.map(film => <FilmCard film={film} key={film.id}/>)
-            });
-        } catch (e) {
-            console.log('Error while retrieving films list',e)
-        }
-    }
-
-    renderOriginalList() {
-        this.setState({
-            filmsRendered: this.state.films.map(film => <FilmCard film={film} key={film.id}/>)
-        });
-    }
-
-    updateSearchKeyword(e) {
-        const keyword = e.target.value;
-        this.setState({
-            searchKeyword : keyword
-        }, () => {
-            keyword !== "" ? setTimeout(() => this.filterFilms(this.state.searchKeyword), 3000) : this.renderOriginalList();
-        });
-    }
-
-    async filterFilms(keyword) {
-        try {
-            const filmsList = await FilmController.searchFilm(keyword);
-            const filteredFilms = filmsList.results.filter(film => film.title.toLowerCase().includes(keyword));
-            this.setState({
-                filmsRendered: filteredFilms.map(film => <FilmCard film={film} key={film.id}/>)
-            });
-        } catch (e) {
-            console.log('Error while filtering films list',e)
         }
     }
 
     render() {
         return (
-            <div>
+            <Router>
                 <NavBar appName={this.state.appName}/>
-                <SearchBar searchKeyword={this.state.searchKeyword} updateSearchKeyword={this.updateSearchKeyword}/>
-                <div className="filmsList" style={{textAlign : 'center'}}>
-                    {this.state.filmsRendered}
-                </div>
-            </div>
+                <Switch>
+                    <Route exact path='/' component={Home} />
+                    <Route path='/details' component={FilmDetails} />
+                </Switch>
+            </Router>
         );
     }
 

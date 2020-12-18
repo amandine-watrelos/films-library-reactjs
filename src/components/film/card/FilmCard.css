@@ -10,6 +10,16 @@
     -webkit-box-orient: vertical;
 }
 
+.card-title {
+    text-decoration: none;
+    color: black;
+}
+
+.card-title:hover {
+    color: #3cc3b2;
+    text-decoration: none;
+}
+
 @media (max-width: 576px) {
 
     .card {

@@ -1,4 +1,6 @@
 import PropTypes from "prop-types";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const NavBar = ({appName}) => {
 
@@ -11,11 +13,12 @@ const NavBar = ({appName}) => {
         height: '5vh',
         fontSize: '3vh',
         textAlign: 'center',
-        display: 'block'
+        display: 'block',
+        color: '#212529'
     }
 
     return (
-        <nav className='text-center' style={navBarStyle}>{appName}</nav>
+        <Link to={''} className='text-center' style={navBarStyle}>{appName}</Link>
     );
 }
 
