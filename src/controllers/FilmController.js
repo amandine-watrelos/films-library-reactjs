@@ -18,4 +18,13 @@ export default class FilmController {
         }
     }
 
+    static async getFilmById(id) {
+        try {
+            const film = await fetch(`${process.env.REACT_APP_API_URL}/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=fr-FR`);
+            return film.json();
+        } catch (e) {
+            console.log('Error while fetching request',e);
+        }
+    }
+
 }

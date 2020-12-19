@@ -1,4 +1,4 @@
-import NavBar from "../film/card/navbar/NavBar";
+import NavBar from "../navbar/NavBar";
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import FilmDetails from "../film/details/FilmDetails";
@@ -19,7 +19,7 @@ class App extends React.Component {
                 <NavBar appName={this.state.appName}/>
                 <Switch>
                     <Route exact path='/' component={Home} />
-                    <Route path='/details' component={FilmDetails} />
+                    <Route path='/details/:id' component={FilmDetails} />
                 </Switch>
             </Router>
         );

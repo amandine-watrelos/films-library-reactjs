@@ -1,0 +1,22 @@
+.film-details-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+}
+
+img {
+    width: 20vw;
+}
+
+li.genre-name {
+    background-color: #3cc3b2;
+    color: white;
+    margin: 1vh;
+    padding: 8px;
+    font-size: 13px;
+    width: fit-content;
+    border-radius: 10px;
+    font-weight: 600;
+    display: inline-block;
+}
