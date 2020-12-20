@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import FilmController from "../../../controllers/FilmController";
 import noFilmImage from "../../../assets/no_valid_image.jpg";
 import './FilmDetails.css';
+import {Link} from "react-router-dom";
 
 const FilmDetails = (props) => {
 
@@ -28,15 +29,20 @@ const FilmDetails = (props) => {
     const genres = film.genres.map(genre => <li className="genre-name">{genre.name}</li>);
 
     return (
-        <section className="film-details-container">
-            <img src={imgLink} alt="Film poster" className="col-md-3"/>
-            <div className="col-md-6">
-                <h3>{film.title} {releaseDate}</h3>
-                <ul>{genres}</ul>
-                <p>Note moyenne : {film.vote_average}/10 ({film.vote_count} votes)</p>
-                <p className="">Synopsis : {overview}</p>
-            </div>
-        </section>);
+        <div>
+            <Link to='/'>
+                <button type="button" className="btn back-btn">Retour à la liste</button>
+            </Link>
+            <section className="film-details-container">
+                <img src={imgLink} alt="Film poster" className="col-md-3"/>
+                <div className="col-md-6">
+                    <h3>{film.title} {releaseDate}</h3>
+                    <ul>{genres}</ul>
+                    <p>Note moyenne : {film.vote_average}/10 ({film.vote_count} votes)</p>
+                    <p className="">Synopsis : {overview}</p>
+                </div>
+            </section>
+        </div>);
 
 }
 

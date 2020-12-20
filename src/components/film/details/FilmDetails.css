@@ -20,3 +20,12 @@ li.genre-name {
     font-weight: 600;
     display: inline-block;
 }
+
+button.back-btn {
+    background-color: #3cc3b2;
+    color: white;
+    position: absolute;
+    left: 13.5vw;
+    top: 10vh;
+}
+
